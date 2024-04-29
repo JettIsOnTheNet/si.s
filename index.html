@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RTFM</title>
+    <!-- lit css -->
+    <link rel="stylesheet" href="global.css" />
+  </head>
+  <body>
+    <main class="c">
+      <h1>skillissues.shop</h1>
+      <section class="flex">
+        <div class="6 flex-item">
+          <div id="thumbnail"></div>
+        </div>
+        <div class="6 flex-item">
+          <h2><span></span></h2>
+          <h4>Video Master Class</h4>
+          <p id="product_description">
+            This video course in <span></span> will take your skills to the next
+            level! With our comprehensive lessons and hands-on exercises, you'll
+            master everything you've ever wanted to learn about
+            <span></span> fast. Say goodbye to confusion and frustration,
+            because our expert instructors in <span></span> will guide you every
+            step of the way. Start your journey towards expertise today!
+          </p>
+          <p>Price: $1.99 USD</p>
+          <a class="button" href="buy.html">Lesson 1 is FREE!</a>
+        </div>
+      </section>
+    </main>
+    <script>
+      var url = window.location.href;
+      var parts = url.split("?");
+      var lastPart;
+      if (parts.length > 1) {
+        lastPart = decodeURIComponent(parts[1]);
+      } else {
+        document.querySelector("#product_description").textContent =
+          "Type in anything you want after a question mark in the URL and it will update the page and product description. For example, try adding /?OCaml Programming to the end of the URL.";
+
+        lastPart = "skillissues.shop";
+      }
+
+      var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("width", "256");
+      svg.setAttribute("height", "256");
+
+      var foreignObject = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "foreignObject"
+      );
+      foreignObject.setAttribute("width", "256");
+      foreignObject.setAttribute("height", "256");
+
+      var div = document.createElement("div");
+      div.style.width = "256px";
+      div.style.height = "256px";
+      div.style.backgroundImage = "url('images/thumbnail.webp')";
+      div.style.backgroundSize = "cover";
+      div.style.display = "flex";
+      div.style.justifyContent = "center";
+      div.style.alignItems = "center";
+      div.style.color = "#fff";
+
+      var text = document.createElement("p");
+      text.textContent = lastPart;
+      text.style.textTransform = "uppercase";
+      text.style.fontWeight = "bold";
+      text.style.whiteSpace = "normal";
+      text.style.display = "inline";
+      text.style.textAlign = "center";
+      text.style.margin = "0";
+      text.style.textShadow =
+        "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black";
+
+      div.appendChild(text);
+
+      foreignObject.appendChild(div);
+      svg.appendChild(foreignObject);
+      var div = document.querySelector("#thumbnail");
+      div.appendChild(svg);
+      document.querySelectorAll("span").forEach(function (span) {
+        span.textContent = lastPart;
+      });
+      document.querySelector("title").textContent = lastPart;
+    </script>
+  </body>
+</html>
