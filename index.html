@@ -9,11 +9,11 @@
       <h1>skillissues.shop</h1>
       <section class="flex">
         <div class="6 flex-item">
-          <div id="thumbnail"></div>
+          <div id="thumbnail" class="round"></div>
         </div>
         <div class="6 flex-item">
           <h2><span></span></h2>
-          <h4>Video Master Class</h4>
+          <h4 id="product_title">Video Master Class</h4>
           <p id="product_description">
             This video course in <span></span> will take your skills to the next
             level! With our comprehensive lessons and hands-on exercises, you'll
@@ -34,10 +34,12 @@
       if (parts.length > 1) {
         lastPart = decodeURIComponent(parts[1]);
       } else {
+        document.querySelector("#product_title").textContent =
+          "Append anything to the URL";
         document.querySelector("#product_description").textContent =
           "Type in anything you want after a question mark in the URL and it will update the page and product description. For example, try adding /?OCaml Programming to the end of the URL.";
 
-        lastPart = "skillissues.shop";
+        lastPart = "How to Use This Page";
       }
 
       var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");

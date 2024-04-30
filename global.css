@@ -201,6 +201,9 @@ th {
     display: inline-block;
     max-width: 256px;
     max-height: 256px;
+}
+
+.round {
     border-radius: 10px;
     overflow: hidden;
     clip-path: inset(0);
